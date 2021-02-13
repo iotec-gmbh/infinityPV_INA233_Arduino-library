@@ -116,37 +116,36 @@
 #define b_p (0)
 /*=========================================================================*/
 
-class INA233
-{
-public:
-  INA233(uint8_t addr = INA233_ADDRESS_45, TwoWire &i2c = Wire);
-  void begin(void);
-  float getBusVoltage_V(void);
-  float getShuntVoltage_mV(void);
-  float getCurrent_mA(void);
-  float getPower_mW(void);
-  float getAv_Power_mW(void);
-  int16_t getBusVoltage_raw(void);
-  int16_t getShuntVoltage_raw(void);
-  int16_t getCurrent_raw(void);
-  int16_t getPower_raw(void);
-  void getEnergy_raw(uint16_t *accumulator, uint8_t *roll_over, uint32_t *sample_count);
-  uint16_t setCalibration(float r_shunt, float i_max, float *Current_LSB, float *Power_LSB, int16_t *m_c, int8_t *R_c, int16_t *m_p, int8_t *R_p, uint8_t *ERROR);
-  void wireReadWord(uint8_t reg, uint16_t *value);
-  void wireReadByte(uint8_t reg, uint8_t *value);
-  void wireReadBlock(uint8_t reg, uint8_t value[6]);
-  void wireWriteWord(uint8_t reg, uint16_t value);
-  void wireWriteByte(uint8_t reg, uint8_t value);
-  void wireSendCmd(uint8_t reg);
+class INA233 {
+   public:
+    INA233(uint8_t addr = INA233_ADDRESS_45, TwoWire &i2c = Wire);
+    void begin(void);
+    float getBusVoltage_V(void);
+    float getShuntVoltage_mV(void);
+    float getCurrent_mA(void);
+    float getPower_mW(void);
+    float getAv_Power_mW(void);
+    int16_t getBusVoltage_raw(void);
+    int16_t getShuntVoltage_raw(void);
+    int16_t getCurrent_raw(void);
+    int16_t getPower_raw(void);
+    void getEnergy_raw(uint16_t *accumulator, uint8_t *roll_over, uint32_t *sample_count);
+    uint16_t setCalibration(float r_shunt, float i_max, float *Current_LSB, float *Power_LSB, int16_t *m_c, int8_t *R_c, int16_t *m_p, int8_t *R_p, uint8_t *ERROR);
+    void wireReadWord(uint8_t reg, uint16_t *value);
+    void wireReadByte(uint8_t reg, uint8_t *value);
+    void wireReadBlock(uint8_t reg, uint8_t value[6]);
+    void wireWriteWord(uint8_t reg, uint16_t value);
+    void wireWriteByte(uint8_t reg, uint8_t value);
+    void wireSendCmd(uint8_t reg);
 
-private:
-  uint8_t ina233_i2caddr;
-  uint32_t ina233_calValue;
-  // The following coefficients are used to convert raw current and power
-  // values to mA and mW, taking into account the current config settings
-  int16_t m_c;
-  int8_t R_c;
-  int16_t m_p;
-  int8_t R_p;
-  TwoWire &m_I2C;
+   private:
+    uint8_t ina233_i2caddr;
+    uint32_t ina233_calValue;
+    // The following coefficients are used to convert raw current and power
+    // values to mA and mW, taking into account the current config settings
+    int16_t m_c;
+    int8_t R_c;
+    int16_t m_p;
+    int8_t R_p;
+    TwoWire &m_I2C;
 };

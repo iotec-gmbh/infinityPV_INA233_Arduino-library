@@ -220,7 +220,7 @@ uint16_t INA233::setCalibration(float r_shunt, float i_max, float *Current_LSB, 
     @brief  Instantiates a new INA233 class
 */
 /**************************************************************************/
-INA233::INA233(uint8_t addr, TwoWire &i2c) : m_I2C {
+INA233::INA233(uint8_t addr, TwoWire &i2c) : m_I2C(i2c) {
     ina233_i2caddr = addr;
     m_c = 0;
     R_c = 0;
