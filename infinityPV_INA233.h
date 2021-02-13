@@ -50,12 +50,12 @@
 #define INA233_ADDRESS_4D (0x4D) /* 1001101 (A1=SCL, A0=VDD)  */
 #define INA233_ADDRESS_4E (0x4E) /* 1001110 (A1=SCL, A0=SDA)  */
 #define INA233_ADDRESS_4F (0x4F) /* 1001111 (A1+A0=SCL)       */
-                                 /*=========================================================================*/
+/*=========================================================================*/
 
 /*=====================================================================================================================
-  PMBus Commands
-  NAME	CODE 	FUNCTION	R/W	Number of Data Bytes 	Default value
------------------------------------------------------------------------------------------------------------------*/
+    PMBus Commands
+    NAME	CODE 	FUNCTION	R/W	Number of Data Bytes 	Default value
+    -----------------------------------------------------------------------------------------------------------------*/
 
 #define CLEAR_FAULTS (0x03)        /* Clears the status registers and rearms the black box registers for udpating SB 0 N/A */
 #define RESTORE_DEFAULT_ALL (0x12) /* Restores internal registers to the default values 			SB 0 N/A */
@@ -90,8 +90,7 @@
 #define TI_MFR_ID (0xE0)           /* Returns a unique word for the manufacturer ID				R 2 0x5449 (TI in ASCII) */
 #define TI_MFR_MODEL (0xE1)        /* Returns a unique word for the manufacturer model			R 2 33 in ASCII */
 #define TI_MFR_REVISION (0xE2)     /* Returns a unique word for the manufacturer revision			R 2 A0 in ASCII */
-/*======================================================================================================================
-
+/*======================================================================================================================*/
 
 /*=========================================================================
     SHUNT VOLTAGE TELEMETRY & WARNING COEFFICIENTS
